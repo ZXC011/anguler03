@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {SerService} from '../../ser.service';
+// 引入事件驱动EventEmitter
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,19 +13,28 @@ export class HeaderComponent implements OnInit {
   @Input() home: any;
   // 获得父组件的方法对象
   @Input() run: any;
-  constructor() { }
+  // 声明事件驱动EventEmitter
+  @Output() private outer = new EventEmitter();
+  constructor(public ser:SerService) { }
 
   ngOnInit() {
-   
     
+
   }
-  getrun(){
+  getrun() {
     this.run();
   }
-  gethome(){
+  gethome() {
     this.home.run();
   }
-  getfather(){
+  getfather() {
     alert('我是子组件的方法');
   }
+  open() {
+    this.outer.emit('子组件广播的数据');
+  }
+  getser(){
+    alert(this.ser.get());
+  }
+  
 }

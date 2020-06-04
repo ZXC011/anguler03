@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {SerService} from '../../ser.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomeComponent implements OnInit {
   // 获取子组件header的对象
   @ViewChild('myheader',{static:true}) myheader:any;
   title:string='首页标题';
-  constructor() { }
+  constructor(public ser:SerService) { }
 
   ngOnInit() {
   } 
@@ -21,4 +22,11 @@ export class HomeComponent implements OnInit {
     this.myheader.getfather();
 
   }
+  openrun(e){
+    alert(e);
+  }
+  setser(){
+    this.ser.set('我是父组件传的值');
+  }
+
 }

@@ -1,5 +1,6 @@
-<!-- title是父组件home给子组件header传的变量，home是父组件home给子组件header传的父组件对象名，run是父组件home给子组件header传的父组件方法名，#myheader是父组件home给子组件取的对象名 -->
-<app-header [title]='title' [home]='this' [run]='run' #myheader></app-header>
+<!-- title是父组件home给子组件header传的变量，home是父组件home给子组件header传的父组件对象名，run是父组件home给子组件header传的父组件方法名，#myheader是父组件home给子组件取的对象名 ,outer是子组件广播的事件-->
+<app-header [title]='title' [home]='this' [run]='run' #myheader (outer)='openrun($event)'></app-header>
 <hr>
 <p>我是主页</p>
 <button (click)="getsun()">取子组件的方法</button>
+<button (click)="setser()">利用服务给子组件传值</button>

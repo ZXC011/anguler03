@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {SerService} from './ser.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './com/home/home.component';
 import { HeaderComponent } from './com/header/header.component';
@@ -12,9 +12,10 @@ import { HeaderComponent } from './com/header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    
   ],
-  providers: [],
+  providers: [SerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
